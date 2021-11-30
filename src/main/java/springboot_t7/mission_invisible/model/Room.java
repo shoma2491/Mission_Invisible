@@ -38,4 +38,8 @@ public class Room {
     this.users = users;
   }
 
+  public int getUserslength() {
+    return this.users.size();
+  }
+
 }
