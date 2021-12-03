@@ -38,9 +38,8 @@ public class MIController {
     public String entry(Principal prin, ModelMap model) {
       String loginUser = prin.getName();
       this.room.addUser(loginUser);
-      int usersLength = this.room.getUserslength();
       model.addAttribute("room", this.room);
-      model.addAttribute("usersLength", usersLength);
+      
       return "entry.html";
   }
 }
