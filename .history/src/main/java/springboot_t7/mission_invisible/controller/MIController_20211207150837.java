@@ -30,7 +30,7 @@ public class MIController {
     }
 
     @GetMapping("/log")
-    public String Log() {
+    public String log() {
       return "log.html";
     }
 
@@ -40,7 +40,7 @@ public class MIController {
     }
 
     @GetMapping("/entry")
-    public String Entry(Principal prin, ModelMap model) {
+    public String entry(Principal prin, ModelMap model) {
       String loginUser = prin.getName();
       this.room.addUser(loginUser);
       int usersLength = this.room.getUserslength();

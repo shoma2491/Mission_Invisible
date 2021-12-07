@@ -25,12 +25,8 @@
     人数が4人未満のため待機中です
   </div>
   <div th:if="${usersLength==2}">
-    <div sec:authorize="hasRole('ROLE_ONI')">
-      <a href="/wait">ゲームスタート</a>
-    </div>
-    <div sec:authorize="hasRole('ROLE_USER')">
-      <a href="/game">ゲームスタート</a>
-    </div>
+    <div sec:authorize="has"
+    <a href="/game">ゲームスタート</a>
   </div>
 
 </body>
