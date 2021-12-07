@@ -42,5 +42,6 @@ public class MIController {
       model.addAttribute("room", this.room);
       model.addAttribute("usersLength", usersLength);
       return "entry.html";
-  }
+    }
+
 }
