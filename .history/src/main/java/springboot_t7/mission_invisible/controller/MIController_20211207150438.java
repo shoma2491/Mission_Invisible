@@ -25,27 +25,26 @@ public class MIController {
    */
 
     @GetMapping("/game")
-    public String Game() {
+    public String game() {
       return "game.html";
     }
 
     @GetMapping("/log")
-    public String Log() {
+    public String log() {
       return "log.html";
     }
 
-    @GetMapping("/wait")
-    public String Wait() {
-      return "wait.html";
-    }
-
     @GetMapping("/entry")
-    public String Entry(Principal prin, ModelMap model) {
+    public String entry(Principal prin, ModelMap model) {
       String loginUser = prin.getName();
       this.room.addUser(loginUser);
       int usersLength = this.room.getUserslength();
       model.addAttribute("room", this.room);
       model.addAttribute("usersLength", usersLength);
       return "entry.html";
+  }
+
+  @GetMapping("/wait"){
+    
   }
 }
