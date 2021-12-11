@@ -42,5 +42,16 @@ public class MIController {
       model.addAttribute("room", this.room);
       model.addAttribute("usersLength", usersLength);
       return "entry.html";
-  }
+    }
+
+    /** 
+     * @param imgNum   
+     * @param model   
+     * @return   
+     */
+
+    @GetMapping("/hide/{imgNum}")
+    public String hide(@PathVariable String imgNum,ModelMap model) {
+      return "wait.html";
+    }
 }
