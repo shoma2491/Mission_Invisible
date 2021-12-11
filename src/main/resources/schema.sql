@@ -1,20 +1,10 @@
-CREATE TABLE chamber (
-    id IDENTITY,
-    user CHAR NOT NULL,
-    number INT NOT NULL
-);
-CREATE TABLE userinfo (
-    user CHAR NOT NULL PRIMARY KEY,
-    height DOUBLE NOT NULL
-);
-
 CREATE TABLE USER(
     userId IDENTITY,
     userName CHAR NOT NULL,
     roleId INT NOT NULL /*1=USER,2=ONI */
 );
 
-CREATE TABLE a(
+CREATE TABLE MATCH(
     userId INT,
     turn INT,
     ingNum INT
