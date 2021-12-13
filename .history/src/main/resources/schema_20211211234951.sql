@@ -1,3 +1,13 @@
+CREATE TABLE chamber (
+    id IDENTITY,
+    user CHAR NOT NULL,
+    number INT NOT NULL
+);
+CREATE TABLE userinfo (
+    user CHAR NOT NULL PRIMARY KEY,
+    height DOUBLE NOT NULL
+);
+
 CREATE TABLE USER(
     userId IDENTITY,
     userName CHAR NOT NULL,
@@ -7,7 +17,7 @@ CREATE TABLE USER(
 CREATE TABLE MATCH(
     userId INT,
     turn INT,
-    imgNum INT
+    ingNum INT
 )
 
 /*

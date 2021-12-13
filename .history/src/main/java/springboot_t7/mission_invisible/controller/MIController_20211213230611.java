@@ -61,7 +61,8 @@ public class MIController {
 
     @GetMapping("/hide/{imgNum}")
     public String hide(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
-      this.game.hide(prin.getName(), imgNum.intValue()); 
+      this.game.hide(prin.getName(), imgNum.intValue());
+      
       return "wait.html";
     }
 }
