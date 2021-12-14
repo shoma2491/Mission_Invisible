@@ -7,12 +7,10 @@ import springboot_t7.mission_invisible.model.Match;
 import springboot_t7.mission_invisible.model.UserMapper;
 import springboot_t7.mission_invisible.model.MatchMapper;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.stereotype.Component;
 
 /**
  * Game
  */
-@Component
 public class Game {
     private static int turn=1;
 

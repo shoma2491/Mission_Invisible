@@ -13,5 +13,9 @@ public interface UserMapper {
 
     @Select("SELECT USERID FROM USER WHERE USERNAME = #{username};")
     int selectByUserName(String username);
+    
+    //Bean実装
+    @Select("SELECT USERID,USERNAME,ROLEID FROM USER WHERE USERNAME = #{username};")
+    User selectAllByUserName(String username);
 
 }
