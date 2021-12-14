@@ -7,7 +7,7 @@ CREATE TABLE USER(
 CREATE TABLE MATCH(
     userId INT,
     turn INT,
-    imgNum INT
+    ingNum INT
 )
 
 /*
