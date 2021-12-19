@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>待機中～</h1>
+
+    <p>
+
+    <div th:if="${userRoleLength==1}">
+        <!--テストプレイ用,本来は3-->
+
+        <ul>
+            <!--roomオブジェクトのroomNoというフィールドを指定している-->
+            <!--<li>RoomNo:[[${room.roomNo}]]</li>-->
+            <!--eachは所謂for each．この場合roomオブジェクトのusersフィールドにあるすべてのデータを一通り表示する
+                  thが指定されているので[]が不要になる-->
+            <li th:each="user : ${roomWait.users}">[[${user}]]</li>
+        </ul>
+
+        <div sec:authorize="hasRole('ROLE_ONI')">
+            <a href="/game">もういいよ～</a>
+        </div>
+    </div>
+</body>
+
+</html>
