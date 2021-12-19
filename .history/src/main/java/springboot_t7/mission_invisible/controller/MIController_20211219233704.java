@@ -20,10 +20,6 @@ public class MIController {
 
     @Autowired
     private Game game;
-
-    @Autowired
-    private Room wait;
-
     /**
    *
    * @param model Thymeleafにわたすデータを保持するオブジェクト
@@ -62,20 +58,11 @@ public class MIController {
     public String hide(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
       String loginUser = prin.getName();
       this.game.hide(prin.getName(), imgNum.intValue());
-      this.wait.addUser(loginUser);
-      int userRoleLength = this.wait.getUserslength();
-      model.addAttribute("roomWait", this.wait);
-      model.addAttribute("userRoleLength", userRoleLength);
-      return "wait.html";
-    }
-
-    @GetMapping("/find/{imgNum}")
-    public String find(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
-      String loginUser = prin.getName();
-      this.game.find(loginUser, imgNum.intValue());
-      this.wait.addUser(loginUser);
-      int userRoleLength = this.wait.getUserslength();
-      model.addAttribute("roomWait", this.wait);
+      if(this.game.roleId(loginUser) == 1){        
+        this.room.addRoleUser(loginUser);
+      }      
+      int userRoleLength = this.room.getRoleUserslength();
+      model.addAttribute("roomWait", this.room);
       model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";
     }

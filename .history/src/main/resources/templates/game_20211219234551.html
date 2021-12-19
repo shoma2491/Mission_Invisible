@@ -7,13 +7,7 @@
 
 <body>
     <div sec:authorize="hasRole('ROLE_ONI')">
-        <a href="/find/1"><img th:src="@{/image/神社.png}" width="128" height="128" /></a>
-        <a href="/find/2"><img th:src="@{/image/商店街.png}" width="128" height="128" /></a>
-        <a href="/find/3"><img th:src="@{/image/くさむら.png}" width="128" height="128" /></a>
-        <br/>
-        <a href="/find/4"><img th:src="@{/image/納屋.png}" width="128" height="128" /></a>
-        <a href="/find/5"><img th:src="@{/image/墓地.png}" width="128" height="128" /></a>
-        <a href="/find/6"><img th:src="@{/image/木.png}" width="128" height="128" /></a>
+      <p>鬼だよ</p>
     </div>
     <div sec:authorize="hasRole('ROLE_USER')">
         <a href="/hide/1"><img th:src="@{/image/神社.png}" width="128" height="128" /></a>
