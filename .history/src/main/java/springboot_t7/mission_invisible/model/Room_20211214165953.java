@@ -54,8 +54,8 @@ public class Room {
     return this.users.size();
   }
 
-  public int getRoleUserslength() {
-    return this.roleusers.size();
+  public int getUserslength() {
+    return this.users.size();
   }
 
 }

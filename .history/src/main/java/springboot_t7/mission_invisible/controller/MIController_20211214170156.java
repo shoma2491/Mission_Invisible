@@ -66,7 +66,7 @@ public class MIController {
       if(this.game.roleId(loginUser) == 1){        
         this.room.addRoleUser(loginUser);
       }      
-      int userRoleLength = this.room.getRoleUserslength();
+      int userRoleLength = this.roomWait.getUserslength();
       model.addAttribute("roleId", this.game.roleId(loginUser));
       model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";

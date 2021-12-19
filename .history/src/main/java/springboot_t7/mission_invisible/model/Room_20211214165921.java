@@ -21,7 +21,7 @@ public class Room {
     this.users.add(name);
   }
 
-  public void addRoleUser(String name) {
+  public void addUser(String name) {
     // 同名のユーザが居たら何もせずにreturn
     for (String s : this.users) {
       if (s.equals(name)) {
@@ -52,10 +52,6 @@ public class Room {
 
   public int getUserslength() {
     return this.users.size();
-  }
-
-  public int getRoleUserslength() {
-    return this.roleusers.size();
   }
 
 }

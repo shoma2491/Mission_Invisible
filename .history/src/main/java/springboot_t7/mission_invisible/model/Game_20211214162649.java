@@ -30,10 +30,6 @@ public class Game {
         matchMapper.insertMatch(id, turn, imgNum);
     }
 
-    @Transactional    
-    public int roleId(String userName){        
-        int roleid = userMapper.selectRoleIdByUserName(userName);        
-        return roleid;    
-    }
+    @Transactional    public int roleId(String userName){        int roleid = userMapper.selectRoleIdByUserName(userName);        return roleid;    }
     
 }

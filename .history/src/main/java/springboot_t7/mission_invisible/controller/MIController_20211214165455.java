@@ -19,6 +19,9 @@ public class MIController {
     private Room room;
 
     @Autowired
+    private Room roomWait;
+
+    @Autowired
     private Game game;
     /**
    *
@@ -38,7 +41,15 @@ public class MIController {
     }
 
     @GetMapping("/wait")
-    public String Wait() {
+    public String Wait(Principal prin, ModelMap model) {
+      String loginUser = prin.getName();      
+      if(this.game.roleId(loginUser) == 1){        
+        this.roomWait.addUser(loginUser);      
+      }      
+      int userRoleLength = this.roomWait.getUserslength();
+      model.addAttribute("roleId", this.game.roleId(loginUser));
+      model.addAttribute("userRoleLength", userRoleLength);
+      model.addAttribute("roomWait", this.roomWait);
       return "wait.html";    
     }
 
@@ -64,11 +75,12 @@ public class MIController {
       String loginUser = prin.getName();
       this.game.hide(prin.getName(), imgNum.intValue());
       if(this.game.roleId(loginUser) == 1){        
-        this.room.addRoleUser(loginUser);
+        this.roomWait.addUser(loginUser);      
       }      
-      int userRoleLength = this.room.getRoleUserslength();
+      int userRoleLength = this.roomWait.getUserslength();
       model.addAttribute("roleId", this.game.roleId(loginUser));
       model.addAttribute("userRoleLength", userRoleLength);
+      model.addAttribute("roomWait", this.roomWait);
       return "wait.html";
     }
 }

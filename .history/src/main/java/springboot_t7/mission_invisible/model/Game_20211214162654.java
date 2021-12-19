@@ -32,8 +32,6 @@ public class Game {
 
     @Transactional    
     public int roleId(String userName){        
-        int roleid = userMapper.selectRoleIdByUserName(userName);        
-        return roleid;    
-    }
+        int roleid = userMapper.selectRoleIdByUserName(userName);        return roleid;    }
     
 }

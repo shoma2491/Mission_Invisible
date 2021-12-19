@@ -14,6 +14,5 @@ public interface UserMapper {
     @Select("SELECT USERID FROM USER WHERE USERNAME = #{username};")
     int selectByUserName(String username);
 
-    @Select("SELECT ROLEID FROM USER WHERE USERNAME = #{username};")    
-    int selectRoleIdByUserName(String username);
+    @Select("SELECT ROLEID FROM USER WHERE USERNAME = #{username};")    int selectRoleIdByUserName(String username);
 }

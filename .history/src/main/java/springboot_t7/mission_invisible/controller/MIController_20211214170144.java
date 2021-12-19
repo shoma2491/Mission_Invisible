@@ -64,9 +64,9 @@ public class MIController {
       String loginUser = prin.getName();
       this.game.hide(prin.getName(), imgNum.intValue());
       if(this.game.roleId(loginUser) == 1){        
-        this.room.addRoleUser(loginUser);
+        this.room.addRoleUser(String )
       }      
-      int userRoleLength = this.room.getRoleUserslength();
+      int userRoleLength = this.roomWait.getUserslength();
       model.addAttribute("roleId", this.game.roleId(loginUser));
       model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";
