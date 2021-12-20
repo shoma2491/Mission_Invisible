@@ -62,6 +62,7 @@ public class MIController {
       this.game.hide(loginUser, imgNum.intValue());
       this.room.addUsersNum();
       int userRoleLength = this.room.getUsersNum();
+      model.addAttribute("room", this.room);
       model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";
     }

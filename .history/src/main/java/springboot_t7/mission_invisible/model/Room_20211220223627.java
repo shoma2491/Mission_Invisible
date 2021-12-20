@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Room {
   ArrayList<String> users = new ArrayList<>();
-  private int usersNum=0;
   
   int roomNo = 1;
 
@@ -21,15 +20,6 @@ public class Room {
     // 同名のユーザが居なかった場合はusersにnameを追加する
     this.users.add(name);
   }
-
-  public void addUsersNum() {
-    this.usersNum++;
-  }
-
-  public void decUsersNum(){
-    this.usersNum--;
-  }
-
   // 以降はフィールドのgetter/setter
   // これらがないとThymeleafで値を取得できない
   public int getRoomNo() {
@@ -46,10 +36,6 @@ public class Room {
 
   public void setUsers(ArrayList<String> users) {
     this.users = users;
-  }
-
-  public int getUsersNum(){
-    return this.usersNum;
   }
 
   public int getUserslength() {

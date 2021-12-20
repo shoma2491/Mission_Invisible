@@ -20,14 +20,17 @@ public class Room {
     }
     // 同名のユーザが居なかった場合はusersにnameを追加する
     this.users.add(name);
+    usersNum++;
   }
 
-  public void addUsersNum() {
-    this.usersNum++;
-  }
-
-  public void decUsersNum(){
-    this.usersNum--;
+  public void removeUser(String name) {
+    for (int i = 0; i < users.size(); i++) {
+      if(name.equals(users.get(i))){
+        users.remove(i);
+        usersNum--;
+        return;
+      }
+    }
   }
 
   // 以降はフィールドのgetter/setter
@@ -48,11 +51,7 @@ public class Room {
     this.users = users;
   }
 
-  public int getUsersNum(){
-    return this.usersNum;
-  }
-
   public int getUserslength() {
-    return this.users.size();
+    return usersNum;
   }
 }

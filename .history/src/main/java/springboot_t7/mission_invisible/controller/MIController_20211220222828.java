@@ -17,6 +17,9 @@ public class MIController {
 
     @Autowired
     private Room room;
+    
+    @Autowired
+    private Room wait;
 
     @Autowired
     private Game game;
@@ -48,20 +51,32 @@ public class MIController {
       model.addAttribute("usersLength", usersLength);
       return "entry.html";
     }
-    
+
     /** 
      * @param imgNum   
      * @param model
      * @param prin
      * @return   
      */
-    
-    @GetMapping("/selectImgNum/{imgNum}")
-    public String selectImgNum(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
+
+    @GetMapping("/hide/{imgNum}")
+    public String hide(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
       String loginUser = prin.getName();
-      this.game.hide(loginUser, imgNum.intValue());
-      this.room.addUsersNum();
-      int userRoleLength = this.room.getUsersNum();
+      this.game.hide(prin.getName(), imgNum.intValue());
+      this.wait.addUser(loginUser);
+      int userRoleLength = this.wait.getUserslength();
+      model.addAttribute("roomWait", this.wait);
+      model.addAttribute("userRoleLength", userRoleLength);
+      return "wait.html";
+    }
+
+    @GetMapping("/find/{imgNum}")
+    public String find(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
+      String loginUser = prin.getName();
+      this.game.find(loginUser, imgNum.intValue());
+      this.wait.addUser(loginUser);
+      int userRoleLength = this.wait.getUserslength();
+      model.addAttribute("roomWait", this.wait);
       model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";
     }

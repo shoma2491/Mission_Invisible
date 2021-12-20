@@ -26,10 +26,6 @@ public class Room {
     this.usersNum++;
   }
 
-  public void decUsersNum(){
-    this.usersNum--;
-  }
-
   // 以降はフィールドのgetter/setter
   // これらがないとThymeleafで値を取得できない
   public int getRoomNo() {
@@ -48,11 +44,7 @@ public class Room {
     this.users = users;
   }
 
-  public int getUsersNum(){
-    return this.usersNum;
-  }
-
   public int getUserslength() {
-    return this.users.size();
+    return usersNum;
   }
 }

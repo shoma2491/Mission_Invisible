@@ -20,6 +20,7 @@ public class Room {
     }
     // 同名のユーザが居なかった場合はusersにnameを追加する
     this.users.add(name);
+    this.addUsersNum();
   }
 
   public void addUsersNum() {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Room {
   ArrayList<String> users = new ArrayList<>();
-  private int usersNum=0;
+  private usersNum=0;
   
   int roomNo = 1;
 
@@ -22,12 +22,14 @@ public class Room {
     this.users.add(name);
   }
 
-  public void addUsersNum() {
-    this.usersNum++;
-  }
-
-  public void decUsersNum(){
-    this.usersNum--;
+  public void removeUser(String name) {
+    for (int i = 0; i < users.size(); i++) {
+      if(name.equals(users.get(i))){
+        users.remove(i);
+        users.trimToSize();
+        return;
+      }
+    }
   }
 
   // 以降はフィールドのgetter/setter
@@ -46,10 +48,6 @@ public class Room {
 
   public void setUsers(ArrayList<String> users) {
     this.users = users;
-  }
-
-  public int getUsersNum(){
-    return this.usersNum;
   }
 
   public int getUserslength() {
