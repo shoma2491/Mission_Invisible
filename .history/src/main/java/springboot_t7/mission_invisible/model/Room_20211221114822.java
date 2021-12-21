@@ -33,15 +33,6 @@ public class Room {
     // 同名のユーザが居なかった場合はusersにnameを追加する
     this.waiters.add(name);
   }
-
-  public void deleetWait(String name) {
-    for (String s : this.waiters) {
-      if (s.equals(name)) {
-        waiters.remove(name);
-        return;
-      }
-    }
-  }
   
   
   // 以降はフィールドのgetter/setter

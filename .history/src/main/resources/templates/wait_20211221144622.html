@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>待機中～</h1>
+
+    <p>waiter:[[${userRoleLength}]]</p>
+
+    <div th:if="${userRoleLength<2}">
+        人数が4人未満のため待機中です
+      </div>
+      <div th:if="${userRoleLength}==2}">
+          <a href="/turnResult">ゲームスタート</a>
+      </div>
+
+</body>
+
+</html>

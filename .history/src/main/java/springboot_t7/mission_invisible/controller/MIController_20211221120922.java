@@ -39,11 +39,6 @@ public class MIController {
       return "log.html";
     }
 
-    @GetMapping("/turnResult")
-    public String turnResult() {
-      return "turnResult.html";
-    }
-
     @GetMapping("/entry")
     public String Entry(Principal prin, ModelMap model) {
       String loginUser = prin.getName();
@@ -61,7 +56,7 @@ public class MIController {
       model.addAttribute("userRoleLength",this.room.getWaitersLength());
       return "wait.html";
     }
-
+    
     /** 
      * @param imgNum   
      * @param model
