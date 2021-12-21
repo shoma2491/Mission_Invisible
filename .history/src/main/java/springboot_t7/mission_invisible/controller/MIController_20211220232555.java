@@ -39,11 +39,6 @@ public class MIController {
       return "log.html";
     }
 
-    @GetMapping("/turnResult")
-    public String turnResult() {
-      return "turnResult.html";
-    }
-
     @GetMapping("/entry")
     public String Entry(Principal prin, ModelMap model) {
       String loginUser = prin.getName();
@@ -53,14 +48,6 @@ public class MIController {
       model.addAttribute("usersLength", usersLength);
       return "entry.html";
     }
-    
-    @GetMapping("/remove")
-    public String remove(ModelMap model,Principal prin) {
-      String loginUser = prin.getName();
-      this.room.deleetWait(loginUser);
-      model.addAttribute("userRoleLength",this.room.getWaitersLength());
-      return "wait.html";
-    }
 
     /** 
      * @param imgNum   
@@ -68,13 +55,14 @@ public class MIController {
      * @param prin
      * @return   
      */
+
     @GetMapping("/selectImgNum/{imgNum}")
     public String selectImgNum(@PathVariable Integer imgNum,ModelMap model,Principal prin) {
       String loginUser = prin.getName();
-      this.room.addWaiters(loginUser);
+      this.room.addUsersNum();
       this.game.hide(loginUser, imgNum.intValue());
-      model.addAttribute("userRoleLength", this.room.getWaitersLength());
+      int userRoleLength = this.room.getUsersNum();
+      model.addAttribute("userRoleLength", userRoleLength);
       return "wait.html";
     }
-    
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>待機中～</h1>
+
+    <div th:if="${userRoleLength==2}">
+        <!--テストプレイ用は2,本来は4-->
+        <p>成功</p>
+        <p>[[${userRoleLength}]]</p>
+    </div>
+
+    <a href="/remove"></a>
+</body>
+
+</html>
