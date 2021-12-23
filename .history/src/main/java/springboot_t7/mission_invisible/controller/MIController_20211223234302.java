@@ -39,15 +39,9 @@ public class MIController {
       return "log.html";
     }
 
-    @GetMapping("/userTurnResult")
-    public String userTurnResult(ModelMap model,Principal prin) {
+    @GetMapping("/turnResult")
+    public String turnResult(ModelMap model) {
       //model.addAttribute("oniimagenum", this.game.turnResult());
-        model.addAttribute("checkFind",this.game.userTurnResult(prin.getName()));
-      return "turnResult.html";
-    }
-
-    @GetMapping("/oniTurnResult")
-    public String oniTurnResult(ModelMap model) {
       model.addAttribute("findCount",this.game.oniTurnResult());
       return "turnResult.html";
     }

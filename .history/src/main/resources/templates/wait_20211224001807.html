@@ -10,18 +10,13 @@
 
     <p>waiter:[[${userRoleLength}]]</p>
 
+    
+
         <div th:if="${userRoleLength<2}">
             まーだだよ
         </div>
         <div th:if="${userRoleLength==2}">
-            
-            <div sec:authorize = "hasRole('ROLE_USER')">
-                <a href="/userTurnResult">もういいよ</a>
-            </div>
-
-            <div sec:authorize = "hasRole('ROLE_ONI')">
-                <a href="/oniTurnResult">もういいよ</a>
-            </div>
+            <a href="/turnResult">もういいよ</a>
         </div>
 
 </body>

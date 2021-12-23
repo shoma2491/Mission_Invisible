@@ -38,19 +38,13 @@ public class Game {
         return roleid;    
     }
 
-    @Transactional
-    public boolean userTurnResult(String userName){
+    /*@Transactional
+    public ArrayList<Integer> userTurnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);
         int oniimgnum = matchMapper.selectImgNumByIdAndTurn(oniid, turn);
-        ArrayList<Integer> findUserIds = matchMapper.selectUserIdNotOniId(turn, oniimgnum, oniid);
-        int userId = userMapper.selectByUserName(userName);
-        for (Integer findUserId : findUserIds) {
-            if(findUserId.intValue() == userId){
-                return true;
-            }     
-        }
-        return false;
-    }
+
+        return oniimgnum;
+    }*/
 
     @Transactional
     public int oniTurnResult(){

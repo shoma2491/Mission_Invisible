@@ -1,7 +1,5 @@
 package springboot_t7.mission_invisible.model;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import springboot_t7.mission_invisible.model.User;
@@ -39,25 +37,10 @@ public class Game {
     }
 
     @Transactional
-    public boolean userTurnResult(String userName){
+    public int turnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);
         int oniimgnum = matchMapper.selectImgNumByIdAndTurn(oniid, turn);
-        ArrayList<Integer> findUserIds = matchMapper.selectUserIdNotOniId(turn, oniimgnum, oniid);
-        int userId = userMapper.selectByUserName(userName);
-        for (Integer findUserId : findUserIds) {
-            if(findUserId.intValue() == userId){
-                return true;
-            }     
-        }
-        return false;
-    }
-
-    @Transactional
-    public int oniTurnResult(){
-        int oniid = userMapper.selectUserIdByRoleId(2);
-        int oniimgnum = matchMapper.selectImgNumByIdAndTurn(oniid, turn);
-        int findCount = matchMapper.countUserIdNotOniId(turn, oniimgnum, oniid);
-        return findCount;
+        return oniimgnum;
     }
     
 }

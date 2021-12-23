@@ -23,7 +23,4 @@ public interface MatchMapper{
 
     @Select("SELECT USERID FROM MATCH WHERE TURN = #{turn} AND imgNum = #{imgNum} AND userId NOT LIKE #{userId};")
     ArrayList<Integer> selectUserIdNotOniId(int turn,int imgNum,int userId);
-
-    @Select("SELECT COUNT(*) FROM MATCH WHERE TURN = #{turn} AND imgNum = #{imgNum} AND userId NOT LIKE #{userId};")
-    int countUserIdNotOniId(int turn,int imgNum,int userId);
 }
