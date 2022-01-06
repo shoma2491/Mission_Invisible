@@ -10,32 +10,36 @@ import springboot_t7.mission_invisible.model.UserMapper;
 import springboot_t7.mission_invisible.model.MatchMapper;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Game
  */
 @Component
+@Scope("prototype")
 public class Game {
     private int turn=1;
 
     @Autowired
     UserMapper userMapper;
-    
+
     @Autowired
     MatchMapper matchMapper;
 
-    public Game(){}
-    
     @Transactional
     public void hide(String userName,int imgNum){
         int id = userMapper.selectByUserName(userName);
         if(matchMapper.countByIdAndTurn(id, this.turn) == 0){matchMapper.insertMatch(id, turn, imgNum);}
     }
 
-    @Transactional    
-    public int roleId(String userName){        
-        int roleid = userMapper.selectRoleIdByUserName(userName);        
-        return roleid;    
+    @Transactional
+    public int roleId(String userName){
+        int roleid = userMapper.selectRoleIdByUserName(userName);
+        return roleid;
+    }
+
+    public void addOneTurn(){
+      turn++;
     }
 
     @Transactional
@@ -47,7 +51,7 @@ public class Game {
         for (Integer findUserId : findUserIds) {
             if(findUserId.intValue() == userId){
                 return true;
-            }     
+            }
         }
         return false;
     }
@@ -59,5 +63,5 @@ public class Game {
         int findCount = matchMapper.countUserIdNotOniId(turn, oniimgnum, oniid);
         return findCount;
     }
-    
+
 }
