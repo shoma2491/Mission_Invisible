@@ -31,6 +31,7 @@ public class MIController {
 
     @GetMapping("/game")
     public String Game() {
+      Game game2 = new Game();
       return "game.html";
     }
 

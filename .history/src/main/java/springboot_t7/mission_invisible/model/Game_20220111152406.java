@@ -43,7 +43,6 @@ public class Game {
             turn++;
         }
         nextTurnFlag++;
-        
         if (nextTurnFlag==userNum) {
             nextTurnFlag=0;
         }

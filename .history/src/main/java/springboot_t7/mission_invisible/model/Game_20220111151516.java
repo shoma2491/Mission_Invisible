@@ -38,13 +38,10 @@ public class Game {
         return roleid;
     }
 
-    public void addOneTurn(){
-        if (nextTurnFlag==0) {
-            turn++;
-        }
+    private void addOneTurn(){
         nextTurnFlag++;
-        
         if (nextTurnFlag==userNum) {
+            turn++;
             nextTurnFlag=0;
         }
     }

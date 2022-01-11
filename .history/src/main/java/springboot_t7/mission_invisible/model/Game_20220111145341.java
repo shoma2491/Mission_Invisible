@@ -10,6 +10,7 @@ import springboot_t7.mission_invisible.model.UserMapper;
 import springboot_t7.mission_invisible.model.MatchMapper;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Game
@@ -17,8 +18,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Game {
     private int turn=1;
-    private int nextTurnFlag=0;
-    static int userNum=2; //ユーザの人数
 
     @Autowired
     UserMapper userMapper;
@@ -39,14 +38,7 @@ public class Game {
     }
 
     public void addOneTurn(){
-        if (nextTurnFlag==0) {
-            turn++;
-        }
-        nextTurnFlag++;
-        
-        if (nextTurnFlag==userNum) {
-            nextTurnFlag=0;
-        }
+      turn++;
     }
 
     @Transactional
@@ -62,7 +54,7 @@ public class Game {
         }
         return false;
     }
-    
+
     @Transactional
     public int oniTurnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);
