@@ -17,8 +17,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Game {
     private int turn=1;
-    private int nextTurnFlag=0;
-    static int userNum=2; //ユーザの人数
 
     @Autowired
     UserMapper userMapper;
@@ -38,15 +36,8 @@ public class Game {
         return roleid;
     }
 
-    public void addOneTurn(){
-        if (nextTurnFlag==0) {
-            turn++;
-        }
-        nextTurnFlag++;
-        
-        if (nextTurnFlag==userNum) {
-            nextTurnFlag=0;
-        }
+    private void addOneTurn(){
+      turn++;
     }
 
     @Transactional
@@ -62,12 +53,13 @@ public class Game {
         }
         return false;
     }
-    
+
     @Transactional
     public int oniTurnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);
         int oniimgnum = matchMapper.selectImgNumByIdAndTurn(oniid, turn);
         int findCount = matchMapper.countUserIdNotOniId(turn, oniimgnum, oniid);
+        this.addOneTurn();
         return findCount;
     }
 

@@ -31,6 +31,7 @@ public class MIController {
 
     @GetMapping("/game")
     public String Game() {
+      Game game2 = new Game();
       return "game.html";
     }
 
@@ -38,7 +39,6 @@ public class MIController {
     public String nextTurn(Principal prin) {
       String loginUser = prin.getName();
       this.room.deleteWait(loginUser);
-      this.game.addOneTurn();
       return "game.html";
     }
 

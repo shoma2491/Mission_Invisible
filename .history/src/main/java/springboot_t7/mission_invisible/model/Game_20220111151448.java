@@ -38,13 +38,10 @@ public class Game {
         return roleid;
     }
 
-    public void addOneTurn(){
-        if (nextTurnFlag==0) {
-            turn++;
-        }
+    private void addOneTurn(){
         nextTurnFlag++;
-        
         if (nextTurnFlag==userNum) {
+            turn++;
             nextTurnFlag=0;
         }
     }
@@ -62,7 +59,7 @@ public class Game {
         }
         return false;
     }
-    
+
     @Transactional
     public int oniTurnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);

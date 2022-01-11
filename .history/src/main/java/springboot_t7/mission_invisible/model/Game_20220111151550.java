@@ -39,12 +39,9 @@ public class Game {
     }
 
     public void addOneTurn(){
-        if (nextTurnFlag==0) {
-            turn++;
-        }
         nextTurnFlag++;
-        
         if (nextTurnFlag==userNum) {
+            turn++;
             nextTurnFlag=0;
         }
     }

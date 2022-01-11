@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-  
-    </head>
+<head>
 
-    <body>
+</head>
 
-        <div sec:authorize = "hasRole('ROLE_USER')">
-            <div th:if="${checkFind}">
-                <p>あなたは見つかりました</p>
-            </div>
+<body>
+  <div sec:authorize="hasRole('ROLE_USER')">
+    <div th:if="${checkFind}">
+      <p>あなたは見つかりました</p>
+    </div>
 
-            <div th:if="${!checkFind}">
-                <p>あなたは見つかりませんでした</p>
-            </div>
-        </div>
+    <div th:if="${!checkFind}">
+      <p>あなたは見つかりませんでした</p>
+    </div>
+  </div>
 
-        <div sec:authorize = "hasRole('ROLE_ONI')">
-            <div th:if="${findCount == 0}">
-                <p>1人も見つけられませんでした</p>
-            </div>
+  <div sec:authorize="hasRole('ROLE_ONI')">
+    <div th:if="${findCount == 0}">
+      <p>1人も見つけられませんでした</p>
+    </div>
 
-            <div th:if="${findCount >= 1}">
-                <p>あなたは[[${findCount}]]人見つけました</p>
-            </div>
-        </div>
+    <div th:if="${findCount >= 1}">
+      <p>あなたは[[${findCount}]]人見つけました</p>
+    </div>
+  </div>
 
-    </body>
+  <a href="/nextTurn">次のターン</a>
+</body>
+
 </html>
