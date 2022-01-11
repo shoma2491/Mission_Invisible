@@ -1,0 +1,16 @@
+<div th:if="${result}">
+    <table border="1">
+        <thead>
+            <th>ターン</th>
+            <th>USER1</th>
+            <th>USER2</th>
+            <th>USER3</th>
+        </thead>
+        <tbody>
+            <tr th:each="result,stat:${result}">
+                <td>[[${result.turn}]]</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table> 
+</div>
