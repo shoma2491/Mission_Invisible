@@ -2,28 +2,28 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="2;url=">
+  <meta http-equiv="refresh" content="2;url=">
 </head>
 
 <body>
-    <h1>待機中～</h1>
+  <h1>待機中～</h1>
 
-    <p>waiter:[[${userRoleLength}]]</p>
+  <p>waiter:[[${userRoleLength}]]</p>
 
-        <div th:if="${userRoleLength<2}">
-            まーだだよ
-        </div>
-        <div th:if="${userRoleLength==2}">
-            
-            <div sec:authorize = "hasRole('ROLE_USER')">
-                <a href="/userTurnResult">もういいよ</a>
-            </div>
+  <div th:if="${userRoleLength<2}">
+    まーだだよ
+  </div>
+  <div th:if="${userRoleLength==2}">
 
-            <div sec:authorize = "hasRole('ROLE_ONI')">
-                <a href="/oniTurnResult">もういいよ</a>
-            </div>
-        </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+      <a href="/userTurnResult">もういいよ</a>
+    </div>
 
+    <div sec:authorize="hasRole('ROLE_ONI')">
+      <a href="/oniTurnResult">もういいよ</a>
+    </div>
+    <p style="color:Red">※"もういいよ"は一緒に押してください</p>
+  </div>
 </body>
 
 </html>
