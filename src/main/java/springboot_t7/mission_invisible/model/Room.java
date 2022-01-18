@@ -76,4 +76,12 @@ public class Room {
   public int getUserslength() {
     return this.users.size();
   }
+
+  public void resetUsers(){
+    users.clear();
+  }
+
+  public void resetWaiters(){
+    waiters.clear();
+  }
 }
