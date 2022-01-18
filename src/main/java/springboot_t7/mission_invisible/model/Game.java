@@ -48,7 +48,7 @@ public class Game {
             turn++;
         }
         nextTurnFlag++;
-        
+
         if (nextTurnFlag==userNum) {
             nextTurnFlag=0;
         }
@@ -74,7 +74,7 @@ public class Game {
         }
         return false;
     }
-    
+
     @Transactional
     public int oniTurnResult(){
         int oniid = userMapper.selectUserIdByRoleId(2);
@@ -85,5 +85,9 @@ public class Game {
 
     public int getTurn(){
         return this.turn;
+    }
+
+    public void resetTurn(){
+        turn = 1;
     }
 }

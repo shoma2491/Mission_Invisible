@@ -28,6 +28,8 @@
 
   <div th:if="${turn < 5}">
     <h2 style="text-align:center"><a href="/nextTurn">次のターン</a></h2>
+
+    <p style="color:Red; text-align:center">※"次のターン"は遊んでいる人達全員で同時に押してください。</p>
   </div>
 
   <div th:if="${turn == 5}">

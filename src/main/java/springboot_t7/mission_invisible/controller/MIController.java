@@ -109,4 +109,12 @@ public class MIController {
       return "finish.html";
     }
 
+    @GetMapping("/exit")
+    public String exit(Principal prin, ModelMap model){
+      this.room.resetUsers();
+      this.room.resetWaiters();
+      this.game.resetTurn();
+      return "exit.html";
+    }
+
 }
