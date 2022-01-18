@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="refresh" content="2;url=">
+  
+</head>
+
+<body bgcolor="lightsteelblue">
+  <h1 style="text-align:center">待機画面</h1>
+
+  <!--roomがあった場合に表示される-->
+  <!--objectはdivの中でroomオブジェクトのフィールドにアクセスすることを示す-->
+  <div th:if="${room}">
+    <h2 style="text-align:center">ログインユーザ</h2>
+    <ul>
+      <!--roomオブジェクトのroomNoというフィールドを指定している-->
+      <!--<li>RoomNo:[[${room.roomNo}]]</li>-->
+      <!--eachは所謂for each．この場合roomオブジェクトのusersフィールドにあるすべてのデータを一通り表示する
+            thが指定されているので[]が不要になる-->
+      <li th:each="user : ${room.users}" style="text-align:center">[[${user}]]</li>
+    </ul>
+  </div>
+  <div th:if="${usersLength<2}" style="text-align:center">
+    人数が4人未満のため待機中です
+  </div>
+  <div th:if="${usersLength==2}">
+      <h2 style="text-align:center"><a href="/game">ゲームスタート</a></h2>
+  </div>
+
+</body>
+
+</html>

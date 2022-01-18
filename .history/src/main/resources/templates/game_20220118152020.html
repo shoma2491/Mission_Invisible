@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        
+</head>
+
+<body bgcolor="lightsteelblue">
+        <div sec:authorize="hasRole('ROLE_USER')">
+                <h2 style="text-align:center">隠れたい場所をクリック！</h2>
+        </div>
+        <div sec:authorize="hasRole('ROLE_ONI')">
+                <h2 style="text-align:center">隠れていると思う場所をクリック！</h2>
+        </div>
+
+        <a href="/selectImgNum/1"><img th:src="@{/image/神社.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/2"><img th:src="@{/image/商店街.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/3"><img th:src="@{/image/くさむら.png}" width="128" height="128" /></a>
+        <br/>
+        <a href="/selectImgNum/4"><img th:src="@{/image/納屋.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/5"><img th:src="@{/image/墓地.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/6"><img th:src="@{/image/木.png}" width="128" height="128" /></a>
+</body>
+
+</html>

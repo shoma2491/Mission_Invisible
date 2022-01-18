@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="refresh" content="2;url=">
+  <>
+</head>
+
+<body bgcolor="lightsteelblue">
+  <h1 style="text-align:center">待機中～</h1>
+
+  <p style="text-align:center">waiter:[[${userRoleLength}]]</p>
+
+  <div th:if="${userRoleLength<2}">
+    <h2 style="text-align:center">まーだだよ</h2>
+  </div>
+  <div th:if="${userRoleLength==2}">
+
+    <div sec:authorize="hasRole('ROLE_USER')">
+      <h2 style="text-align:center"><a href="/userTurnResult">もういいよ</a></h2>
+    </div>
+
+    <div sec:authorize="hasRole('ROLE_ONI')">
+      <h2 style="text-align:center"><a href="/oniTurnResult">もういいよ</a></h2>
+    </div>
+    <p style="color:Red; text-align:center">※"もういいよ"は遊んでいる人達全員で同時に押してください。</p>
+  </div>
+</body>
+
+</html>
