@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+        <div sec:authorize="hasRole('ROLE_ONI')">
+                <p>隠れている場所を探せ！</p>
+        </div>
+        <a href="/selectImgNum/1"><img th:src="@{/image/神社.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/2"><img th:src="@{/image/商店街.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/3"><img th:src="@{/image/くさむら.png}" width="128" height="128" /></a>
+        <br/>
+        <a href="/selectImgNum/4"><img th:src="@{/image/納屋.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/5"><img th:src="@{/image/墓地.png}" width="128" height="128" /></a>
+        <a href="/selectImgNum/6"><img th:src="@{/image/木.png}" width="128" height="128" /></a>
+</body>
+
+</html>

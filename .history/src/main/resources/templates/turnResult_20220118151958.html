@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body bgcolor="lightsteelblue">
+  <div sec:authorize="hasRole('ROLE_USER')">
+    <div th:if="${checkFind}">
+      <h2 style="text-align:center">あなたは見つかりました</h2>
+    </div>
+
+    <div th:if="${!checkFind}">
+      <h2 style="text-align:center">あなたは見つかりませんでした</h2>
+    </div>
+  </div>
+
+  <div sec:authorize="hasRole('ROLE_ONI')">
+    <div th:if="${findCount == 0}">
+      <h2 style="text-align:center">1人も見つけられませんでした</h2>
+    </div>
+
+    <div th:if="${findCount >= 1}">
+      <h2 style="text-align:center">あなたは[[${findCount}]]人見つけました</h2>
+    </div>
+  </div>
+
+  <div th:if="${turn < 5}">
+    <h2 style="text-align:center"><a href="/nextTurn">次のターン</a></h2>
+  </div>
+
+  <div th:if="${turn == 5}">
+    <h2 style="text-align:center"><a href="/finish">試合終了</a></h2>
+  </div>
+
+</body>
+
+</html>

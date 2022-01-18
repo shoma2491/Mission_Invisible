@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="refresh" content="2;url=">
+</head>
+
+<body>
+  <h1 style="text-align:center">待機中～</h1>
+
+  <p style="text-align:center">waiter:[[${userRoleLength}]]</p>
+
+  <div th:if="${userRoleLength<2}" style="text-align:center">
+    まーだだよ
+  </div>
+  <div th:if="${userRoleLength==2}">
+
+    <div sec:authorize="hasRole('ROLE_USER')">
+      <a href="/userTurnResult" style="text-align:center">もういいよ</a>
+    </div>
+
+    <div sec:authorize="hasRole('ROLE_ONI')">
+      <a href="/oniTurnResult" style="text-align:center">もういいよ</a>
+    </div>
+    <p style="color:Red; text-align:center">※"もういいよ"は</p>
+  </div>
+</body>
+
+</html>

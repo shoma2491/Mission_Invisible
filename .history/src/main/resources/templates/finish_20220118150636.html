@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>試合結果</title>
+</head>
+
+<body>
+    <h1 style="text-align:center">★試合結果★</h1>
+
+    <div th:if="${result}">
+        <div style="text-align:center">
+        <table border="1">
+            <thead>
+                <th>ターン</th>
+                <th>USER1</th>
+                <th>USER2</th>
+                <th>USER3</th>
+            </thead>
+            <tbody>
+                <tr th:each="result,stat:${result}">
+                    <td>[[${result.turn}]]</td>
+                    <td>[[${result.user1}]]</td>
+                    <td>[[${result.user2}]]</td>
+                    <td>[[${result.user3}]]</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+</body>
+</html>
