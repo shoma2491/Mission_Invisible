@@ -92,10 +92,6 @@ public class Game {
     }
 
     public void resetMatch() {
-        this.matchMapper.deleteMatch();
-    }
-
-    public void resetResult() {
-        this.resultMapper.resetResult();
+        
     }
 }

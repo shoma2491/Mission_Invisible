@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Delete;
 import java.util.ArrayList;
 
 @Mapper
@@ -28,7 +27,5 @@ public interface MatchMapper{
     @Select("SELECT COUNT(*) FROM MATCH WHERE TURN = #{turn} AND imgNum = #{imgNum} AND userId NOT LIKE #{userId};")
     int countUserIdNotOniId(int turn,int imgNum,int userId);
 
-    @Delete("DELETE FROM MATCH")
-    void deleteMatch();
-
+    @Delete
 }
