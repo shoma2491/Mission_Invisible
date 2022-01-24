@@ -36,7 +36,6 @@ public class MIController {
 
     @GetMapping("/game")
     public String Game() {
-      this.game.resetResult();
       return "game.html";
     }
 

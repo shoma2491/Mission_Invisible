@@ -72,6 +72,13 @@ public class Game {
                 return true;
             }
         }
+        if(userId == 1){
+            this.resultMapper.updateUser1(0, this.turn);
+        }else if(userId == 2){
+            this.resultMapper.updateUser2(0, this.turn);
+        }else if(userId == 3){
+            this.resultMapper.updateUser3(0, this.turn);
+        }
         return false;
     }
 
@@ -93,9 +100,5 @@ public class Game {
 
     public void resetMatch() {
         this.matchMapper.deleteMatch();
-    }
-
-    public void resetResult() {
-        this.resultMapper.resetResult();
     }
 }
